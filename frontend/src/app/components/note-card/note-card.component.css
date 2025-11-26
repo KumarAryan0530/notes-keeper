@@ -1,0 +1,189 @@
+.note-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 16px rgba(220, 20, 60, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(230, 57, 70, 0.1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.note-card:nth-child(1) { animation-delay: 0.1s; }
+.note-card:nth-child(2) { animation-delay: 0.2s; }
+.note-card:nth-child(3) { animation-delay: 0.3s; }
+.note-card:nth-child(4) { animation-delay: 0.4s; }
+.note-card:nth-child(n+5) { animation-delay: 0.5s; }
+
+.note-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #DC143C 0%, #E63946 50%, #DC143C 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: shimmer 2s infinite;
+}
+
+.note-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(220, 20, 60, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.note-card:hover {
+  box-shadow: 0 12px 24px rgba(220, 20, 60, 0.18), 0 4px 12px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-6px);
+  border-color: rgba(230, 57, 70, 0.3);
+}
+
+.note-card:hover:before {
+  opacity: 1;
+}
+
+.note-card:hover::after {
+  opacity: 1;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.note-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+  flex: 1;
+  word-wrap: break-word;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pin-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 4px 8px;
+  color: #DC143C;
+  border-radius: 6px;
+  position: relative;
+}
+
+.pin-btn:hover {
+  opacity: 1;
+  background: rgba(220, 20, 60, 0.1);
+  transform: scale(1.2) rotate(-15deg);
+}
+
+.pin-btn.pinned {
+  opacity: 1;
+  color: #E63946;
+  background: rgba(230, 57, 70, 0.15);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.note-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #404040;
+  margin: 0 0 12px 0;
+  flex-grow: 1;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.note-date {
+  font-size: 13px;
+  color: #333333;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.date-line {
+  font-weight: 600;
+  color: #222222;
+}
+
+.time-line {
+  font-size: 12px;
+  opacity: 0.9;
+  color: #444444;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: #666;
+  position: relative;
+}
+
+.note-card:hover .action-btn {
+  opacity: 1;
+  animation: slideInRight 0.3s ease-out;
+}
+
+.action-btn:hover {
+  transform: scale(1.2);
+  background: rgba(220, 20, 60, 0.08);
+}
+
+.edit-btn:hover {
+  color: #DC143C;
+  transform: scale(1.2) rotate(20deg);
+}
+
+.delete-btn:hover {
+  color: #E63946;
+  background: rgba(230, 57, 70, 0.2);
+  transform: scale(1.2) rotate(-20deg);
+}

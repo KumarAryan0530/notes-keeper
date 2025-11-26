@@ -1,0 +1,40 @@
+<div class="container">
+  <app-header (onAddNote)="openAddModal()"></app-header>
+
+  <app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading notes...
+  </div>
+
+  <div class="notes-grid">
+    <app-note-card
+      *ngFor="let note of filteredNotes"
+      [note]="note"
+      (onEdit)="openEditModal($event)"
+      (onDelete)="onNoteDeleted($event)"
+      (onPin)="onNotePinned($event)"
+    ></app-note-card>
+  </div>
+
+  <div *ngIf="filteredNotes.length === 0 && !loading" class="empty-state">
+    <p>{{ searchQuery ? 'No notes found' : 'No notes yet. Create one!' }}</p>
+  </div>
+
+  <app-add-note-modal
+    *ngIf="showAddModal"
+    (onClose)="closeAddModal()"
+    (onSave)="onNoteAdded($event)"
+  ></app-add-note-modal>
+
+  <app-edit-note-modal
+    *ngIf="showEditModal && selectedNote"
+    [note]="selectedNote"
+    (onClose)="closeEditModal()"
+    (onSave)="onNoteUpdated($event)"
+  ></app-edit-note-modal>
+</div>

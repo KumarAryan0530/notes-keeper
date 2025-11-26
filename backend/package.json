@@ -1,0 +1,22 @@
+{
+  "name": "notes-keeper-backend",
+  "version": "1.0.0",
+  "description": "Notes App Backend (Google Keep Clone)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["notes", "app", "express", "postgresql"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "pg": "^8.10.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

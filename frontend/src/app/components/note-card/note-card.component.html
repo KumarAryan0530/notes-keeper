@@ -1,0 +1,29 @@
+<div class="note-card" [style.backgroundColor]="note.color">
+  <div class="note-header">
+    <h3 class="note-title">{{ note.title }}</h3>
+    <button
+      class="pin-btn"
+      [class.pinned]="note.is_pinned"
+      (click)="pinNote()"
+      title="Pin note"
+    >
+      📌
+    </button>
+  </div>
+
+  <p class="note-content">{{ note.content }}</p>
+
+  <div class="note-date">
+    <div class="date-line">{{ formatDate(note.created_at) }}</div>
+    <div class="time-line">{{ formatTime(note.created_at) }}</div>
+  </div>
+
+  <div class="note-actions">
+    <button class="action-btn edit-btn" (click)="editNote()" title="Edit">
+      ✏️
+    </button>
+    <button class="action-btn delete-btn" (click)="deleteNote()" title="Delete">
+      🗑️
+    </button>
+  </div>
+</div>

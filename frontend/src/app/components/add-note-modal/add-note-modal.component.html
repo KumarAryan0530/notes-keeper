@@ -1,0 +1,49 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Create Note</h2>
+      <button class="close-btn" (click)="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <input
+        type="text"
+        class="input-title"
+        placeholder="Title"
+        [(ngModel)]="title"
+      />
+
+      <textarea
+        class="input-content"
+        placeholder="Take a note..."
+        [(ngModel)]="content"
+        rows="6"
+      ></textarea>
+
+      <div class="color-palette">
+        <label>Color:</label>
+        <div class="color-options">
+          <button
+            *ngFor="let color of colors"
+            class="color-btn"
+            [style.backgroundColor]="color"
+            [class.selected]="selectedColor === color"
+            (click)="selectColor(color)"
+            [title]="'Color: ' + color"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-cancel" (click)="closeModal()">Cancel</button>
+      <button
+        class="btn btn-save"
+        (click)="saveNote()"
+        [disabled]="!title.trim() || !content.trim()"
+      >
+        Save Note
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(220, 20, 60, 0.45) 0%, transparent 8%),
+    radial-gradient(circle at 80% 80%, rgba(230, 57, 70, 0.45) 0%, transparent 8%),
+    radial-gradient(circle at 40% 50%, rgba(220, 20, 60, 0.4) 0%, transparent 6%),
+    radial-gradient(circle at 90% 10%, rgba(230, 57, 70, 0.4) 0%, transparent 6%),
+    radial-gradient(circle at 30% 80%, rgba(220, 20, 60, 0.35) 0%, transparent 5%),
+    radial-gradient(circle at 70% 30%, rgba(230, 57, 70, 0.35) 0%, transparent 5%);
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+  animation: particleFloat 15s ease-in-out infinite;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.4) 0%, transparent 6%),
+    radial-gradient(circle at 20% 60%, rgba(230, 57, 70, 0.4) 0%, transparent 6%),
+    radial-gradient(circle at 70% 70%, rgba(220, 20, 60, 0.38) 0%, transparent 5%),
+    radial-gradient(circle at 15% 40%, rgba(230, 57, 70, 0.38) 0%, transparent 5%),
+    radial-gradient(circle at 85% 50%, rgba(220, 20, 60, 0.32) 0%, transparent 4%),
+    radial-gradient(circle at 45% 10%, rgba(230, 57, 70, 0.32) 0%, transparent 4%);
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+  animation: particleFloat 18s ease-in-out infinite reverse;
+}
+
+button {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+input,
+textarea {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Futuristic animations */
+@keyframes particleFloat {
+  0% {
+    opacity: 0.6;
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translateY(-50px) translateX(60px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-100px) translateX(-70px);
+  }
+  75% {
+    opacity: 0.9;
+    transform: translateY(-50px) translateX(80px);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes particleFloat2 {
+  0% {
+    opacity: 0.5;
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    opacity: 0.85;
+    transform: translateY(-60px) translateX(-50px);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateY(-90px) translateX(80px);
+  }
+  75% {
+    opacity: 0.85;
+    transform: translateY(-50px) translateX(-70px);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(220, 20, 60, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E63946 0%, #DC143C 100%);
+  border-radius: 5px;
+  border: 2px solid #f0f0f0;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #DC143C 0%, #B91C2C 100%);
+}
